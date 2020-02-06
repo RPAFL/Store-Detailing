@@ -1,0 +1,138 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Region_TransferScreen" this:Region_TransferScreen.in_selectCodes="05-06-02-33" this:Region_TransferScreen.value1="17" this:Region_TransferScreen.value2="01" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uit="http://schemas.uipath.com/workflow/activities/terminal" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_selectCodes" Type="InArgument(x:String)" />
+    <x:Property Name="value1" Type="InArgument(x:String)" />
+    <x:Property Name="value2" Type="InArgument(x:String)" />
+    <x:Property Name="io_terminalSessionOutput" Type="InOutArgument(uit:TerminalConnection)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>659,1748</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Terminal</x:String>
+      <x:String>UiPath.Terminal.Service</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Region_TransferScreen" sap:VirtualizedContainerService.HintSize="619,1668" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="screenText" />
+      <Variable x:TypeArguments="s:String[]" Name="code_array" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uit:TerminalSession ConnectionString="{x:Null}" ContinueOnError="{x:Null}" OutputConnection="{x:Null}" CloseConnection="False" DelayMS="1000" DisplayName="Terminal Session" ExistingConnection="[io_terminalSessionOutput]" sap:VirtualizedContainerService.HintSize="597,1544" sap2010:WorkflowViewState.IdRef="TerminalSession_1" TimeoutMS="50000">
+      <uit:TerminalSession.Body>
+        <ActivityAction x:TypeArguments="uit:TerminalConnection">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="uit:TerminalConnection" Name="terminalSession" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="583,1445" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uit:TerminalGetTextAtPosition Column="25" DelayMS="300" DisplayName="Get Text at Position" sap:VirtualizedContainerService.HintSize="561,87" sap2010:WorkflowViewState.IdRef="TerminalGetTextAtPosition_1" Length="27" Row="1" Text="[screenText]" TimeoutMS="5000" WaitType="READY" />
+            <Assign sap:VirtualizedContainerService.HintSize="561,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:String[]">[code_array]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:String[]">[in_selectCodes.Split("-"c)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[screenText.Trim.ToUpper=&quot;DIRECT MODE TRANSFER SCREEN&quot;]" DisplayName="If Direct Mode Transfer Screen" sap:VirtualizedContainerService.HintSize="561,1094" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Processing screen" sap:VirtualizedContainerService.HintSize="336,947" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uit:TerminalSetFieldAtPosition Column="5" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_1" Row="14" Text="[code_array(0)]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSetFieldAtPosition Column="9" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_2" Row="14" Text="[code_array(1)]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSetFieldAtPosition Column="13" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_3" Row="14" Text="[code_array(2)]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSetFieldAtPosition Column="17" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_4" Row="14" Text="[code_array(3)]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSetFieldAtPosition Column="48" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_5" Row="14" Text="[value1]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSetFieldAtPosition Column="62" DelayMS="300" DisplayName="Set Field at Position" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="TerminalSetFieldAtPosition_6" Row="14" Text="[value2]" TimeoutMS="5000" WaitType="READY" />
+                  <uit:TerminalSendControlKey DelayMS="1000" DisplayName="Send Control Key" sap:VirtualizedContainerService.HintSize="314,61" sap2010:WorkflowViewState.IdRef="TerminalSendControlKey_1" Key="Transmit" TimeoutMS="5000" WaitType="READY" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Throw DisplayName="Throw System exception" Exception="[new exception(&quot;Region codes entered might be wrong, please check the orchastrator assets and update the same&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Throw>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uit:TerminalSession.Body>
+    </uit:TerminalSession>
+  </Sequence>
+</Activity>
